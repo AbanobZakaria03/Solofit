@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context=".ui.MainActivity">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        app:menu="@menu/bottom_navigation_items" />
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/bottom_nav">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="40dp">
+
+
+                <com.github.florent37.shapeofview.shapes.ArcView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:shape_arc_cropDirection="outside"
+                    app:shape_arc_height="20dp"
+                    app:shape_arc_position="bottom">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_inner"
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:layout_gravity="center"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardElevation="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                                android:id="@+id/progress_circular"
+                                android:layout_width="200dp"
+                                android:layout_height="200dp"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="28dp"
+                                app:cpb_background_progressbar_color="@color/progressbackground"
+                                app:cpb_background_progressbar_width="7dp"
+                                app:cpb_progress_direction="to_right"
+                                app:cpb_progressbar_color="@color/white"
+                                app:cpb_progressbar_width="7dp"
+                                app:cpb_round_border="true" />
+
+                            <LinearLayout
+                                android:id="@+id/parent_cal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="100dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/my_cal"
+                                    style="@style/myText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2000"
+                                    android:textSize="20sp" />
+
+
+                                <TextView
+                                    android:id="@+id/textView4"
+                                    style="@style/myText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="-"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/ate_cal"
+                                    style="@style/myText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/textView2"
+                                    style="@style/myText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="="
+                                    android:textSize="20sp" />
+
+                                <TextView
+                                    android:id="@+id/result"
+                                    style="@style/myText"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="2000"
+                                    android:textSize="20sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/calories_remaining"
+                                style="@style/myText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/parent_cal"
+                                android:layout_centerHorizontal="true"
+                                android:alpha="0.8"
+                                android:text="Calories Remaining" />
+
+                            <TextView
+                                android:id="@+id/cal_progress"
+                                style="@style/myText"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/calories_remaining"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="8dp"
+                                android:alpha="0.8"
+                                android:text="0%" />
+
+                            <TextView
+                                android:id="@+id/carbs"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/progress_circular"
+                                android:layout_marginLeft="32dp"
+                                android:layout_marginTop="16dp"
+                                android:text="CARBS"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <ProgressBar
+                                android:id="@+id/progress_carbs"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/carbs"
+                                android:layout_marginLeft="32dp"
+                                android:max="100"
+                                android:progress="0"
+                                android:progressTint="@color/white" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/progress_carbs"
+                                android:layout_marginLeft="32dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ate_carbs"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="/"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/my_carbs"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="55g"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                            <TextView
+                                android:id="@+id/protein"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/progress_circular"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginTop="16dp"
+                                android:text="PROTEIN"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <ProgressBar
+                                android:id="@+id/progress_protein"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/protein"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="16dp"
+                                android:max="100"
+                                android:progress="0"
+                                android:progressTint="@color/white" />
+
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/progress_protein"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="32dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ate_protein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="/"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/my_protein"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="55g"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/fat"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/progress_circular"
+                                android:layout_alignStart="@id/progress_fat"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginRight="32dp"
+                                android:text="FAT"
+                                android:textColor="@color/white"
+                                android:textStyle="bold" />
+
+                            <ProgressBar
+                                android:id="@+id/progress_fat"
+                                style="?android:attr/progressBarStyleHorizontal"
+                                android:layout_width="70dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/fat"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginRight="32dp"
+                                android:max="100"
+                                android:progress="0"
+                                android:progressTint="@color/white" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/progress_fat"
+                                android:layout_alignStart="@+id/progress_fat"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginLeft="8dp"
+                                android:layout_marginRight="32dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/ate_fat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="/"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/my_fat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="55g"
+                                    android:textColor="@color/white"
+                                    android:textStyle="bold" />
+
+                            </LinearLayout>
+
+
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+                </com.github.florent37.shapeofview.shapes.ArcView>
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:background="@color/meal">
+
+                            <ImageView
+                                android:id="@+id/breakfast"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/breakfast" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:layout_toRightOf="@+id/breakfast"
+                                android:text="Breakfast"
+                                android:textColor="@color/white"
+                                android:textSize="22sp" />
+
+                            <Button
+                                android:id="@+id/add_breakfast"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:background="@drawable/add" />
+
+                            <Button
+                                android:id="@+id/cam_breakfast"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="16dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_toLeftOf="@id/add_breakfast"
+                                android:background="@drawable/cam_icon"
+                                android:backgroundTint="#EC7514" />
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_Breakfast"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:background="@color/meal">
+
+                            <ImageView
+                                android:id="@+id/lunch"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/lunch" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:layout_toRightOf="@+id/lunch"
+                                android:text="Lunch"
+                                android:textColor="@color/white"
+                                android:textSize="22sp" />
+
+                            <Button
+                                android:id="@+id/add_lunch"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:background="@drawable/add" />
+
+                            <Button
+                                android:id="@+id/cam_lunch"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="16dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_toLeftOf="@id/add_lunch"
+                                android:background="@drawable/cam_icon"
+                                android:backgroundTint="#EC7514" />
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_Lunch"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardElevation="4dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:background="@color/meal">
+
+                            <ImageView
+                                android:id="@+id/dinner"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20dp"
+                                android:src="@drawable/dinner" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="20dp"
+                                android:layout_toRightOf="@+id/dinner"
+                                android:text="Dinner"
+                                android:textColor="@color/white"
+                                android:textSize="22sp" />
+
+                            <Button
+                                android:id="@+id/add_dinner"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="16dp"
+                                android:background="@drawable/add" />
+
+                            <Button
+                                android:id="@+id/cam_dinner"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="16dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_toLeftOf="@id/add_dinner"
+                                android:background="@drawable/cam_icon"
+                                android:backgroundTint="#EC7514" />
+                        </RelativeLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recyclerView_Dinner"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:nestedScrollingEnabled="false" />
+
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
+
+
+</RelativeLayout>
+
+    <!--
+
+    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+        android:id="@+id/progress_circular"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:cpb_progress_direction="to_right"
+        app:cpb_progressbar_color="@color/colorPrimary"
+        app:cpb_round_border="true"
+        app:cpb_progressbar_width="5dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/add"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="28dp"
+        android:text="insert"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ate_cal"
+        app:layout_constraintEnd_toStartOf="@+id/ate_cal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/my_cal" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/progress_circular"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/progress_circular" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="="
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/result"
+        app:layout_constraintEnd_toStartOf="@+id/result"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/ate_cal" />
+
+    <TextView
+        android:id="@+id/ate_cal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/my_cal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2000"
+        android:textSize="24sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/ate_cal"
+        app:layout_constraintEnd_toStartOf="@+id/textView4"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:background="@color/colorAccent"
+        app:layout_constraintBottom_toTopOf="@+id/add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progress_circular"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="8dp"
+                app:cardCornerRadius="8dp"
+                app:cardBackgroundColor="@color/colorPrimary">
+
+                <LinearLayout
+                    android:id="@+id/lyt_expand_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="launch" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerView3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:nestedScrollingEnabled="false"
+                        android:layout_marginTop="16dp" />
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+-->

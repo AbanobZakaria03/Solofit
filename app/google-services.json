@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "503328522753",
+    "project_id": "solofit-797f1",
+    "storage_bucket": "solofit-797f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503328522753:android:cc73039c2ec041c36f7600",
+        "android_client_info": {
+          "package_name": "com.example.solofit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503328522753-i4spq9qqf8l3u3qddfls1q7a59ktbd28.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.solofit",
+            "certificate_hash": "dd37c8af4d5f14d6fbacb184f6e2ce5a60d8b48d"
+          }
+        },
+        {
+          "client_id": "503328522753-pps5pgt37qvrqkq8n0ovn8ai7fk6qece.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGmNA739Iji08pz4f_C75sKIqJVxhpTBY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503328522753-pps5pgt37qvrqkq8n0ovn8ai7fk6qece.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
