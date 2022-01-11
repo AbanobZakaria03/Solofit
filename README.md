@@ -1,5 +1,5 @@
 # Solofit
-A diet app using native android with java and firebase.
+A diet app using native android with java , firebase and AI.
 
 ## Screenshots
 
